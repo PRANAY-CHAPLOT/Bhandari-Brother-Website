@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bhandari Brothers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+          }
+        }
+      }
+    </script>
+    <script>
+      // Initialize theme to prevent flash
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Embedded SVG Favicon (Gear/Bearing B Logo) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%2300157E'%3E%3Cpath d='M15 5 H35 V95 H15 Z' /%3E%3Cpath d='M35 15 H55 A25 25 0 0 1 55 65 H35 V15 Z' /%3E%3Crect x='56' y='6' width='12' height='10' transform='rotate(-30 62 11)' /%3E%3Crect x='72' y='18' width='12' height='10' transform='rotate(10 78 23)' /%3E%3Cpath d='M35 55 H55 A25 25 0 0 1 55 95 H35 V55 Z' /%3E%3Ccircle cx='55' cy='75' r='14' fill='white' /%3E%3Ccircle cx='55' cy='75' r='8' fill='%2300157E' /%3E%3Ccircle cx='55' cy='65' r='2' fill='white' /%3E%3Ccircle cx='65' cy='75' r='2' fill='white' /%3E%3Ccircle cx='55' cy='83' r='2' fill='white' /%3E%3Ccircle cx='45' cy='75' r='2' fill='white' /%3E%3C/svg%3E" />
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        /* Default to slate-50, but let Tailwind dark classes override on components */
+        background-color: #F8FAFC; 
+        color: #0F172A;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      
+      /* Dark Mode Body Override via CSS for consistency */
+      .dark body {
+        background-color: #020617; /* Slate 950 */
+        color: #F8FAFC;
+      }
+
+      .sanyo-blue { color: #00157E; }
+      .bg-sanyo-blue { background-color: #00157E; }
+      .sanyo-accent { color: #115FAD; }
+      .bg-sanyo-accent { background-color: #115FAD; }
+      
+      /* Fluid Animations */
+      .animate-slide-up {
+        animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      
+      @keyframes slideUp {
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .stagger-1 { animation-delay: 100ms; }
+      .stagger-2 { animation-delay: 200ms; }
+      .stagger-3 { animation-delay: 300ms; }
+      .stagger-4 { animation-delay: 400ms; }
+      .stagger-5 { animation-delay: 500ms; }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #f1f1f1; }
+      .dark ::-webkit-scrollbar-track { background: #0f172a; }
+      
+      ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+      .dark ::-webkit-scrollbar-thumb { background: #334155; }
+      
+      ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
