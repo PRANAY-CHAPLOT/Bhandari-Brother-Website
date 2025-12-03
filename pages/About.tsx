@@ -1,9 +1,15 @@
 import React from 'react';
-import { Award, Briefcase, Users, History, Factory } from 'lucide-react';
+import { Award, Briefcase, Users, History, Factory, Quote } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const About: React.FC = () => {
   return (
     <div className="min-h-screen pt-28 pb-20 bg-white dark:bg-slate-950 transition-colors duration-300">
+      <SEO 
+        title="About Bhandari Brothers - 56 Years of Legacy in Mandsaur" 
+        description="Founded in 1969 by Shantilalji & Laxmilalji Bhandari, we have evolved from bus spares to Mandsaur's leading supplier of tractor parts, bearings, and industrial tools."
+      />
+
       {/* Intro */}
       <div className="max-w-4xl mx-auto px-6 text-center mb-24 animate-slide-up">
         <span className="inline-block py-1 px-4 rounded-full bg-blue-50 dark:bg-blue-900/30 text-[#00157E] dark:text-blue-300 text-xs font-bold tracking-widest mb-6 uppercase">Since 1969</span>
@@ -38,7 +44,7 @@ const About: React.FC = () => {
       </div>
 
       {/* Timeline */}
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-6 mb-32">
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-16 text-center">Our Evolution</h2>
         
         <div className="relative border-l-2 border-slate-100 dark:border-slate-800 ml-4 md:ml-12 space-y-16 pb-12">
@@ -51,7 +57,7 @@ const About: React.FC = () => {
                 <span className="inline-block px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-[#00157E] dark:text-blue-300 text-xs font-bold rounded-full mb-3 shadow-sm">Present Day</span>
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-[#00157E] dark:group-hover:text-blue-400 transition-colors">The Industrial Powerhouse</h3>
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
-                  We are currently one of the most trusted names in Mandsaur, dealing in <strong>Tractor Spares, Bearings (SKF, NBC, DPI), Nut Bolts (TVS, Allen), Tyres & Tubes, and Greasing Equipments</strong>. We continue to serve with the same integrity passed down from our founders.
+                  We are currently one of the most trusted names in Mandsaur, dealing in <strong>Tractor Spares, Bearings (SKF, NBC, DPI, HBL), Nut Bolts (Local, TVS, Allen, Grub, CSK), Mechanical Tools (Taparia), Tyres & Tubes, and Greasing Equipments</strong>. We continue to serve with the same integrity passed down from our founders.
                 </p>
             </div>
 
@@ -83,6 +89,49 @@ const About: React.FC = () => {
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
                   Started by <strong>Shantilalji & Laxmilalji Bhandari</strong> as the 2nd shop in Mandsaur dealing specifically in Bus Spares. This foundation of quality and pioneering spirit laid the groundwork for everything we do today.
                 </p>
+            </div>
+        </div>
+      </div>
+
+      {/* Testimonials */}
+      <div className="max-w-7xl mx-auto px-6 animate-slide-up stagger-5">
+        <div className="text-center mb-16">
+           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">Trusted by Industry Leaders</h2>
+           <p className="text-slate-500 dark:text-slate-400">What our long-standing partners say about working with Bhandari Brothers.</p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-slate-50 dark:bg-slate-900 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 relative group hover:-translate-y-1 transition-transform duration-300">
+               <Quote className="absolute top-8 right-8 text-blue-100 dark:text-slate-800 group-hover:text-blue-200 dark:group-hover:text-slate-700 transition-colors" size={48} />
+               <div className="relative z-10">
+                   <p className="text-slate-600 dark:text-slate-300 italic mb-6 leading-relaxed">"Bhandari Brothers has been our reliable partner for tractor spares for over a decade. Their genuine parts ensure our fleet never faces downtime."</p>
+                   <div>
+                       <h4 className="font-bold text-[#00157E] dark:text-blue-300">Rajesh Kumar</h4>
+                       <p className="text-xs font-bold text-slate-400 uppercase tracking-wide">Farming Syndicate, Mandsaur</p>
+                   </div>
+               </div>
+            </div>
+
+            <div className="bg-slate-50 dark:bg-slate-900 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 relative group hover:-translate-y-1 transition-transform duration-300">
+               <Quote className="absolute top-8 right-8 text-blue-100 dark:text-slate-800 group-hover:text-blue-200 dark:group-hover:text-slate-700 transition-colors" size={48} />
+               <div className="relative z-10">
+                   <p className="text-slate-600 dark:text-slate-300 italic mb-6 leading-relaxed">"The quality of bearings we source from them is unmatched. Their deep technical knowledge helps us find exactly what we need."</p>
+                   <div>
+                       <h4 className="font-bold text-[#00157E] dark:text-blue-300">Amit Singh</h4>
+                       <p className="text-xs font-bold text-slate-400 uppercase tracking-wide">Industrial Maintenance Solutions</p>
+                   </div>
+               </div>
+            </div>
+
+            <div className="bg-slate-50 dark:bg-slate-900 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 relative group hover:-translate-y-1 transition-transform duration-300">
+               <Quote className="absolute top-8 right-8 text-blue-100 dark:text-slate-800 group-hover:text-blue-200 dark:group-hover:text-slate-700 transition-colors" size={48} />
+               <div className="relative z-10">
+                   <p className="text-slate-600 dark:text-slate-300 italic mb-6 leading-relaxed">"Excellent range of nuts and bolts. We find everything we need for our workshop under one roof. Highly recommended."</p>
+                   <div>
+                       <h4 className="font-bold text-[#00157E] dark:text-blue-300">Suresh Verma</h4>
+                       <p className="text-xs font-bold text-slate-400 uppercase tracking-wide">Verma Auto Works</p>
+                   </div>
+               </div>
             </div>
         </div>
       </div>

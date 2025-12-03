@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, Phone, MapPin, ArrowRight, ExternalLink, Clock } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Contact: React.FC = () => {
   // Using the specific shared link provided
@@ -7,6 +8,11 @@ const Contact: React.FC = () => {
 
   return (
     <div className="min-h-screen pt-20 bg-white dark:bg-slate-950 flex flex-col transition-colors duration-300">
+       <SEO 
+        title="Contact Bhandari Brothers - Industrial Supply HQ in Mandsaur" 
+        description="Visit our headquarters Opposite Balaji Mandir, Bus Stand, Mandsaur. Contact us for inquiries about Tractor Spares, Bearings, and Industrial Tools."
+      />
+
        <div className="flex-grow grid grid-cols-1 lg:grid-cols-2">
             {/* Left Info Panel */}
             <div className="bg-[#00157E] text-white p-8 md:p-12 lg:p-24 flex flex-col justify-center relative overflow-hidden animate-slide-up">

@@ -2,9 +2,11 @@ export interface Product {
   id: number;
   name: string;
   category: string;
+  brand: string;
   image: string;
   price: string;
   description: string;
+  features?: string[];
 }
 
 export interface NavItem {

@@ -1,10 +1,16 @@
 import React from 'react';
 import { ArrowRight, Settings, Sprout, Hammer, ShieldCheck, MapPin, Tractor } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Home: React.FC = () => {
   return (
     <div className="min-h-screen pt-20 overflow-x-hidden bg-white dark:bg-slate-950 transition-colors duration-300">
+      <SEO 
+        title="Bhandari Brothers - Industrial Supply & Agro-Tech in Mandsaur | Since 1969"
+        description="Premier supplier of Tractor Spares, Bearings, and Fasteners in Mandsaur, MP. Authorized dealers for SKF, NBC, MRF, and major tractor brands since 1969."
+      />
+
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         {/* Background Elements */}
@@ -51,7 +57,7 @@ const Home: React.FC = () => {
                 <div className="absolute inset-0 bg-blue-600 rounded-[2.5rem] rotate-3 opacity-10 group-hover:rotate-6 transition-transform duration-700 ease-out"></div>
                 <img 
                     src="https://images.unsplash.com/photo-1635339684177-d4468f7027d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
-                    alt="Industrial Bearings" 
+                    alt="High-precision industrial bearings for heavy machinery at Bhandari Brothers" 
                     className="relative rounded-[2.5rem] shadow-2xl w-full object-cover h-[500px] border-[6px] border-white dark:border-slate-800 transform group-hover:scale-[1.01] group-hover:-rotate-1 transition-transform duration-700 ease-out"
                 />
                 
@@ -88,7 +94,7 @@ const Home: React.FC = () => {
                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8">Authorised dealer for SKF, NBC, DPI, and HBL. High-quality bearings for all industrial needs.</p>
                <div className="mt-auto rounded-2xl overflow-hidden h-48 relative">
                  <div className="absolute inset-0 bg-[#00157E]/0 group-hover:bg-[#00157E]/10 transition-colors z-10"></div>
-                 <img src="https://images.unsplash.com/photo-1596522514330-c3d325ee1909?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" alt="Bearings" />
+                 <img src="https://images.unsplash.com/photo-1596522514330-c3d325ee1909?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" alt="SKF and NBC industrial bearings display" />
                </div>
             </div>
 
@@ -104,7 +110,7 @@ const Home: React.FC = () => {
                </div>
                <div className="absolute right-0 top-0 w-1/2 h-full hidden md:block">
                   <div className="absolute inset-0 bg-gradient-to-r from-white via-white/20 to-transparent dark:from-slate-950 dark:via-slate-950/20 z-10"></div>
-                  <img src="https://plus.unsplash.com/premium_photo-1664302152996-339892c9089f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000" alt="Tractor" />
+                  <img src="https://plus.unsplash.com/premium_photo-1664302152996-339892c9089f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000" alt="Modern tractor farming equipment spares" />
                </div>
             </div>
 
@@ -124,7 +130,7 @@ const Home: React.FC = () => {
                </div>
                <div className="flex-1 h-64 w-full rounded-2xl overflow-hidden border border-white/10 relative">
                     <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors z-10"></div>
-                    <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90" alt="Tools" />
+                    <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90" alt="Industrial tools, fasteners and greasing equipment collection" />
                </div>
             </div>
           </div>
