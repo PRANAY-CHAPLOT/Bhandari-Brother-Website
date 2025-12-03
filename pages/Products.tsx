@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Product } from '../types';
-import { Filter, ArrowRight, X, Check, CheckCircle2, MessageSquare, RotateCcw } from 'lucide-react';
+import { Filter, ArrowRight, X, Check, CheckCircle2, MessageSquare, RotateCcw, ImageOff } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+
+// Reliable placeholder image in case source fails
+const PLACEHOLDER_IMAGE = "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80";
 
 const allProducts: Product[] = [
     {
@@ -11,7 +14,7 @@ const allProducts: Product[] = [
         category: "Tractor Spares",
         brand: "Mahindra",
         price: "Contact for Quote",
-        image: "https://images.unsplash.com/photo-1563297121-72464735ce7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        image: "https://images.unsplash.com/photo-1592323360824-738933b432a1?auto=format&fit=crop&w=800&q=80",
         description: "Premium-grade engine overhaul kits and individual components designed for peak performance in HMT, Mahindra, Swaraj, and Escorts tractors. Engineered to OEM specifications, these parts ensure maximum durability under heavy load conditions, restoring your agricultural machinery to factory-standard efficiency. Perfect for complete engine restoration and critical repairs.",
         features: [
             "OEM grade durability and precision",
@@ -26,7 +29,7 @@ const allProducts: Product[] = [
         category: "Tools",
         brand: "Taparia",
         price: "Contact for Quote",
-        image: "https://images.unsplash.com/photo-1581147036324-c17ac41dfa6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80",
         description: "A comprehensive suite of professional-grade hand tools from Taparia and select local artisans. This collection features precision-forged spanners, ergonomic pliers, and high-torque wrenches designed for the rigorous demands of industrial workshops. Crafted for longevity and superior grip, these tools represent the gold standard in mechanical maintenance.",
         features: [
             "Chrome Vanadium Steel construction",
@@ -41,7 +44,7 @@ const allProducts: Product[] = [
         category: "Bearings",
         brand: "SKF",
         price: "Contact for Quote",
-        image: "https://images.unsplash.com/photo-1596522514330-c3d325ee1909?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        image: "https://images.unsplash.com/photo-1455383533475-452331df4005?auto=format&fit=crop&w=800&q=80",
         description: "Industrial-strength Pillow Block, Cylindrical, and Double Row bearings engineered for high-speed and heavy-load applications. Featuring robust cast-iron housings and precision-ground rolling elements, these bearings minimize friction and vibration, ensuring seamless operation in conveyors, agricultural equipment, and heavy manufacturing units.",
         features: [
             "High load-carrying capacity",
@@ -56,7 +59,7 @@ const allProducts: Product[] = [
         category: "Nut Bolts",
         brand: "TVS",
         price: "Contact for Quote",
-        image: "https://images.unsplash.com/photo-1605356877074-a026c6d26733?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        image: "https://images.unsplash.com/photo-1505249581781-64ac886d4b9b?auto=format&fit=crop&w=800&q=80",
         description: "High-tensile precision fasteners from TVS, the industry leader in strength and reliability. Our inventory includes Socket Head Cap Screws (SHCS), Grub screws, and Countersunk (CSK) heads. Manufactured with advanced metallurgy for superior shear strength and fatigue resistance, these fasteners are critical for secure assembly in automotive and industrial engineering.",
         features: [
             "High Tensile Grade 12.9",
@@ -71,7 +74,7 @@ const allProducts: Product[] = [
         category: "Tractor Spares",
         brand: "Powertrac",
         price: "Contact for Quote",
-        image: "https://plus.unsplash.com/premium_photo-1664302152996-339892c9089f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        image: "https://images.unsplash.com/photo-1598209279122-8541213a0383?auto=format&fit=crop&w=800&q=80",
         description: "High-performance transmission gears and precision-machined shafts tailored for Powertrac, Ford, Farmtrac, and Massey Ferguson tractors. Treated with advanced carburizing processes for exceptional surface hardness and core toughness, these components ensure smooth gear shifts and optimal power transfer in the most demanding agricultural terrains.",
         features: [
             "Case-hardened steel gears",
@@ -86,7 +89,7 @@ const allProducts: Product[] = [
         category: "Tyre Tubes",
         brand: "MRF",
         price: "Contact for Quote",
-        image: "https://images.unsplash.com/photo-1578844251758-2f71da64522f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        image: "https://images.unsplash.com/photo-1632823469850-896d84f938c4?auto=format&fit=crop&w=800&q=80",
         description: "Premium-quality motorcycle tyre tubes from market leaders MRF and Ceat. Formulated with high-grade butyl rubber for superior air retention and heat resistance, these tubes offer exceptional puncture protection and longevity. Ideal for navigating the diverse and challenging road conditions of Mandsaur and beyond.",
         features: [
             "Heat resistant rubber compound",
@@ -101,7 +104,7 @@ const allProducts: Product[] = [
         category: "Bearings",
         brand: "NBC",
         price: "Contact for Quote",
-        image: "https://images.unsplash.com/photo-1536409604068-245cc429cb01?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        image: "https://images.unsplash.com/photo-1580983570624-699705df2975?auto=format&fit=crop&w=800&q=80",
         description: "Precision-engineered Taper and Angular contact bearings designed to handle complex combined radial and axial loads. Sourced from top-tier manufacturers like NBC and SKF, these bearings are essential for automotive wheel hubs, gearboxes, and heavy agricultural machinery, guaranteeing stability and extended service life.",
         features: [
             "Optimized geometry for load distribution",
@@ -116,7 +119,7 @@ const allProducts: Product[] = [
         category: "Tractor Spares",
         brand: "Sonalika",
         price: "Contact for Quote",
-        image: "https://images.unsplash.com/photo-1595168171780-87729f273577?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        image: "https://images.unsplash.com/photo-1532585623098-b648316dfc64?auto=format&fit=crop&w=800&q=80",
         description: "Authentic, factory-spec body panels and fittings for Sonalika and Massey tractors. From heavy-gauge bonnets and fenders to precision grills, our body parts feature corrosion-resistant coatings and exact-match fitment. Restore the aesthetic appeal and structural integrity of your tractor with components built to withstand the elements.",
         features: [
             "OEM color matching",
@@ -170,6 +173,10 @@ const Products: React.FC = () => {
   const resetFilters = () => {
     setSelectedCategories([]);
     setSelectedBrands([]);
+  };
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = PLACEHOLDER_IMAGE;
   };
 
   return (
@@ -329,6 +336,7 @@ const Products: React.FC = () => {
                                     <img 
                                         src={product.image} 
                                         alt={`${product.name} - ${product.description}`} 
+                                        onError={handleImageError}
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" 
                                     />
                                     <div className="absolute top-4 left-4 z-20">
@@ -405,6 +413,7 @@ const Products: React.FC = () => {
                     <img 
                         src={selectedProduct.image} 
                         alt={selectedProduct.name} 
+                        onError={handleImageError}
                         className="w-full h-full object-cover"
                     />
                 </div>
