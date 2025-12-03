@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Embedded SVG Favicon (Gear/Bearing B Logo) -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%2300157E'%3E%3Cpath d='M15 5 H35 V95 H15 Z' /%3E%3Cpath d='M35 15 H55 A25 25 0 0 1 55 65 H35 V15 Z' /%3E%3Crect x='56' y='6' width='12' height='10' transform='rotate(-30 62 11)' /%3E%3Crect x='72' y='18' width='12' height='10' transform='rotate(10 78 23)' /%3E%3Cpath d='M35 55 H55 A25 25 0 0 1 55 95 H35 V55 Z' /%3E%3Ccircle cx='55' cy='75' r='14' fill='white' /%3E%3Ccircle cx='55' cy='75' r='8' fill='%2300157E' /%3E%3Ccircle cx='55' cy='65' r='2' fill='white' /%3E%3Ccircle cx='65' cy='75' r='2' fill='white' /%3E%3Ccircle cx='55' cy='83' r='2' fill='white' /%3E%3Ccircle cx='45' cy='75' r='2' fill='white' /%3E%3C/svg%3E" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
     <style>
       body {
         font-family: 'Inter', sans-serif;
@@ -82,12 +82,15 @@
   <script type="importmap">
 {
   "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.22.3?deps=react@18.2.0,react-dom@18.2.0",
+    "lucide-react": "https://esm.sh/lucide-react@0.344.0?deps=react@18.2.0",
     "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/"
   }
 }
 </script>
