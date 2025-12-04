@@ -8,6 +8,9 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+      // Polyfill process for browser environment to prevent crashes in libraries using process.env
+      window.process = { env: { NODE_ENV: 'production' } };
+
       tailwind.config = {
         darkMode: 'class',
         theme: {
@@ -99,7 +102,7 @@
 </head>
   <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
     <div id="root"></div>
-    <!-- Changed type to text/babel and path to relative ./ -->
-    <script type="text/babel" src="./index.tsx"></script>
+    <!-- Configured Babel to use ES Modules to fix 'require is not defined' -->
+    <script type="text/babel" data-type="module" data-presets="react,typescript" src="./index.tsx"></script>
   </body>
 </html>

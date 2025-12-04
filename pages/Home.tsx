@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Settings, Sprout, Hammer, ShieldCheck, MapPin, Tractor } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import SEO from '../components/SEO';
+import SEO from '../components/SEO.tsx';
 
 // Placeholder image in case source fails
 const PLACEHOLDER_IMAGE = "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80";

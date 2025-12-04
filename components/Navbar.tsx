@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavItem } from '../types';
+import { NavItem } from '../types.ts';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 

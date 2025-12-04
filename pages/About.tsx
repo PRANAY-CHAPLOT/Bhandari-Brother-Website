@@ -1,6 +1,6 @@
 import React from 'react';
 import { Award, Briefcase, Users, History, Factory, Quote } from 'lucide-react';
-import SEO from '../components/SEO';
+import SEO from '../components/SEO.tsx';
 
 const About: React.FC = () => {
   return (

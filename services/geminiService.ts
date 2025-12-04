@@ -1,5 +1,5 @@
 import { GoogleGenAI, Type } from "@google/genai";
-import { ImageSize, GroundingChunk } from "../types";
+import { ImageSize, GroundingChunk } from "../types.ts";
 
 const apiKey = process.env.API_KEY || "";
 const ai = new GoogleGenAI({ apiKey });

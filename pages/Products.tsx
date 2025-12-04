@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { Product } from '../types';
+import { Product } from '../types.ts';
 import { Filter, ArrowRight, X, Check, CheckCircle2, MessageSquare, RotateCcw, ImageOff, Eye } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import SEO from '../components/SEO';
+import SEO from '../components/SEO.tsx';
 
 // Reliable placeholder image in case source fails
 const PLACEHOLDER_IMAGE = "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80";

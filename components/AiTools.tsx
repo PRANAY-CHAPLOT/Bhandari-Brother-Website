@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Search, MapPin, Image as ImageIcon, Wand2, Loader2, Upload, ExternalLink } from 'lucide-react';
-import { searchKnowledgeBase, locateSuppliers, generateIndustrialPrototype, editIndustrialImage, fileToGenerativePart } from '../services/geminiService';
-import { AI_MODE, ImageSize, GroundingChunk } from '../types';
+import { searchKnowledgeBase, locateSuppliers, generateIndustrialPrototype, editIndustrialImage, fileToGenerativePart } from '../services/geminiService.ts';
+import { AI_MODE, ImageSize, GroundingChunk } from '../types.ts';
 
 const AiTools: React.FC = () => {
   const [activeMode, setActiveMode] = useState<AI_MODE>(AI_MODE.SEARCH);

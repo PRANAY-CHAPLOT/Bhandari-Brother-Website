@@ -1,6 +1,6 @@
 import React from 'react';
 import { Mail, Phone, MapPin, ArrowRight, ExternalLink, Clock } from 'lucide-react';
-import SEO from '../components/SEO';
+import SEO from '../components/SEO.tsx';
 
 const Contact: React.FC = () => {
   // Using the specific shared link provided
