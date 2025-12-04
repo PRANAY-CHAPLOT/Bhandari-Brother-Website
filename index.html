@@ -1,14 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bhandari Brothers</title>
-    <!-- Add Babel for in-browser TSX compilation -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      // Polyfill process for browser environment to prevent crashes in libraries using process.env
+      // Polyfill process for browser environment
       window.process = { env: { NODE_ENV: 'production' } };
 
       tailwind.config = {
@@ -23,7 +22,6 @@
       }
     </script>
     <script>
-      // Initialize theme to prevent flash
       if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark')
       } else {
@@ -33,76 +31,58 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Embedded SVG Favicon (Gear/Bearing B Logo) -->
     <link rel="icon" type="image/svg+xml" href="./logo.png" />
     <style>
       body {
         font-family: 'Inter', sans-serif;
-        /* Default to slate-50, but let Tailwind dark classes override on components */
         background-color: #F8FAFC; 
         color: #0F172A;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
-      
-      /* Dark Mode Body Override via CSS for consistency */
       .dark body {
-        background-color: #020617; /* Slate 950 */
+        background-color: #020617;
         color: #F8FAFC;
       }
-
-      .sanyo-blue { color: #00157E; }
-      .bg-sanyo-blue { background-color: #00157E; }
-      .sanyo-accent { color: #115FAD; }
-      .bg-sanyo-accent { background-color: #115FAD; }
-      
-      /* Fluid Animations */
       .animate-slide-up {
         animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         opacity: 0;
         transform: translateY(20px);
       }
-      
       @keyframes slideUp {
         to { opacity: 1; transform: translateY(0); }
       }
-
       .stagger-1 { animation-delay: 100ms; }
       .stagger-2 { animation-delay: 200ms; }
       .stagger-3 { animation-delay: 300ms; }
       .stagger-4 { animation-delay: 400ms; }
       .stagger-5 { animation-delay: 500ms; }
-
-      /* Custom scrollbar */
       ::-webkit-scrollbar { width: 8px; }
       ::-webkit-scrollbar-track { background: #f1f1f1; }
       .dark ::-webkit-scrollbar-track { background: #0f172a; }
-      
       ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
       .dark ::-webkit-scrollbar-thumb { background: #334155; }
-      
       ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
   <script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@18.2.0",
-    "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
-    "react-dom": "https://esm.sh/react-dom@18.2.0",
     "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
     "react-router-dom": "https://esm.sh/react-router-dom@6.22.3?deps=react@18.2.0,react-dom@18.2.0",
     "lucide-react": "https://esm.sh/lucide-react@0.344.0?deps=react@18.2.0",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "@google/genai": "https://esm.sh/@google/genai@0.1.1",
+    "htm": "https://esm.sh/htm@3.1.1",
+    "htm/react": "https://esm.sh/htm@3.1.1/react?deps=react@18.2.0",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-    "react/": "https://aistudiocdn.com/react@^19.2.1/"
+    "htm/": "https://aistudiocdn.com/htm@^3.1.1/"
   }
 }
 </script>
 </head>
   <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
     <div id="root"></div>
-    <!-- Configured Babel to use ES Modules to fix 'require is not defined' -->
-    <script type="text/babel" data-type="module" data-presets="react,typescript" src="./index.tsx"></script>
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
