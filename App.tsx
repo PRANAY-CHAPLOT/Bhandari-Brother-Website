@@ -1,12 +1,12 @@
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Products from './pages/Products';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import ScrollToTopButton from './components/ScrollToTopButton';
+import Navbar from './components/Navbar.tsx';
+import Footer from './components/Footer.tsx';
+import Home from './pages/Home.tsx';
+import Products from './pages/Products.tsx';
+import About from './pages/About.tsx';
+import Contact from './pages/Contact.tsx';
+import ScrollToTopButton from './components/ScrollToTopButton.tsx';
 
 const App: React.FC = () => {
   return (

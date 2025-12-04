@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Product } from '../types';
-import { Filter, ArrowRight, X, Check, CheckCircle2, MessageSquare, RotateCcw, ImageOff } from 'lucide-react';
+import { Filter, ArrowRight, X, Check, CheckCircle2, MessageSquare, RotateCcw, ImageOff, Eye } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 
@@ -135,6 +135,8 @@ const Products: React.FC = () => {
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
+  const resultsRef = useRef<HTMLDivElement>(null);
+
   // Extract unique categories and brands
   const categories = useMemo(() => Array.from(new Set(allProducts.map(p => p.category))).sort(), []);
   const brands = useMemo(() => Array.from(new Set(allProducts.map(p => p.brand))).sort(), []);
@@ -158,21 +160,35 @@ const Products: React.FC = () => {
     });
   }, [selectedCategories, selectedBrands]);
 
+  const scrollToResults = () => {
+    if (resultsRef.current) {
+        // Offset for navbar height (approx 100px)
+        const yOffset = -120; 
+        const element = resultsRef.current;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        
+        window.scrollTo({top: y, behavior: 'smooth'});
+    }
+  };
+
   const toggleCategory = (cat: string) => {
     setSelectedCategories(prev => 
         prev.includes(cat) ? prev.filter(c => c !== cat) : [...prev, cat]
     );
+    scrollToResults();
   };
 
   const toggleBrand = (brand: string) => {
     setSelectedBrands(prev => 
         prev.includes(brand) ? prev.filter(b => b !== brand) : [...prev, brand]
     );
+    scrollToResults();
   };
 
   const resetFilters = () => {
     setSelectedCategories([]);
     setSelectedBrands([]);
+    scrollToResults();
   };
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
@@ -206,7 +222,7 @@ const Products: React.FC = () => {
           )}
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12" ref={resultsRef}>
             {/* Sidebar Filters (Desktop) */}
             <div className="hidden lg:block space-y-8 animate-slide-up stagger-1 h-fit sticky top-28">
                 <div className="bg-white dark:bg-slate-950 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm transition-colors">
@@ -332,7 +348,7 @@ const Products: React.FC = () => {
                                 style={{ animationDelay: `${(idx + 1) * 100}ms` }}
                             >
                                 <div className="relative h-72 mb-6 rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900">
-                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors z-10"></div>
+                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors z-10"></div>
                                     <img 
                                         src={product.image} 
                                         alt={`${product.name} - ${product.description}`} 
@@ -343,6 +359,19 @@ const Products: React.FC = () => {
                                         <span className="inline-block py-1 px-2 bg-white/90 dark:bg-slate-900/90 backdrop-blur text-[#00157E] dark:text-blue-400 text-[10px] font-bold uppercase tracking-wide rounded-md shadow-sm">
                                             {product.brand}
                                         </span>
+                                    </div>
+                                    
+                                    {/* Quick View Button Overlay */}
+                                    <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
+                                        <button 
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                setSelectedProduct(product);
+                                            }}
+                                            className="bg-white/95 dark:bg-slate-900/95 backdrop-blur text-[#00157E] dark:text-blue-400 px-6 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center gap-2"
+                                        >
+                                            <Eye size={18} /> Quick View
+                                        </button>
                                     </div>
                                 </div>
                                 <div className="flex flex-col flex-grow">
